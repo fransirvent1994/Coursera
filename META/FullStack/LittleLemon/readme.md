@@ -35,16 +35,11 @@ Now it´s supposed to the terminal outputs something like this:
 
 Now you will get access by RightMouseButton+Ctrl on the IP address and will get to the web, where you should see the options on the main page, and, on "Book" and "Reservations", something like this:
 
-<<<<<<< HEAD
 
 ![Screenshot of my application](screenshots/bookings.png)
 
 
-
-=======
-Screenshot 1)
 ![Screenshot of my application](screenshots/bookings.png)
 
-Screenshot 2)
->>>>>>> 6ae45388404913ae2f02ca53ea5452562f7b2d5a
+
 ![Screenshot of my application](screenshots/reservations.png)
