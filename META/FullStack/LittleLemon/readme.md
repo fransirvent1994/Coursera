@@ -33,10 +33,11 @@ Now it´s supposed to the terminal outputs something like this:
 ![Screenshot of my application](screenshots/server.png)
 
 
-Now on the web you should see the options on the main page, and, on "Book" and "Reservations", something like this:
+Now you will get access by RightMouseButton+Ctrl on the IP address and will get to the web, where you should see the options on the main page, and, on "Book" and "Reservations", something like this:
 
-Screenshot 1)
-![Screenshot of my application](Screenshots/bookings.png)
 
-Screenshot 2)
-![Screenshot of my application](Screenshots/reservations.png)
+![Screenshot of my application](screenshots/bookings.png)
+
+
+
+![Screenshot of my application](screenshots/reservations.png)
