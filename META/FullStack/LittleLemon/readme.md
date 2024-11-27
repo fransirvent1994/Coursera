@@ -36,7 +36,7 @@ Now it´s supposed to the terminal outputs something like this:
 Now on the web you should see the options on the main page, and, on "Book" and "Reservations", something like this:
 
 Screenshot 1)
-![Screenshot of my application](Screenshots/screenshot1.png)
+![Screenshot of my application](Screenshots/ScreenShot1.png)
 
 Screenshot 2)
-![Screenshot of my application](Screenshots/screenshot2.png)
+![Screenshot of my application](Screenshots/ScreenShot2.png)
