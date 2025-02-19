@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section>
+    <article id="book">
+      <a href="book" class="cta"> Book now </a>
+    </article>
+  </section>
+  <section>
+    <article>
+      <h2>Our Menu</h2>
+      <img src="{% static 'img/grill.jpg' %}">
+      <p>
+        Our menu consists of seasonal items based on Mediterranean food culture (Spanish, Italian, Greek, Turkish...).
+      </p>
+      <p>
+        <a href="{% url 'menu' %}">See our menu</a>
+      </p>
+    </article>
+    <article>
+      <h2>Book a table here: </h2>
+      <img src="{% static 'img/salad.jpg' %}">
+      <p>
+        Reserve your table for an excellent Mediterranean meal or dinner.
+      </p>
+      <p>
+        <a href="{% url 'book' %}">Book your table now</a>
+      </p>
+    </article>
+    <article>
+      <h2>Opening Hours</h2>
+      <img src="{% static 'img/chef.jpg' %}">
+      <p>
+        The Little Lemon Restaurant is open 5 days a week, (Monday and Tuesday off). 
+      </p>
+      <ul>
+        <li>Wednesday - Friday: 12:30 - 23:30</li>
+        <li>Saturday: 12:00 - 00:00</li>
+        <li>Sunday: 12:00 - 00:00</li>
+      </ul>
+    </article>
+  </section>
+{% endblock %}

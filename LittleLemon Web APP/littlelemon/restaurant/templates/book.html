@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section>
+  <article>
+    <h1>Make a Reservation</h1>
+    <div class="row">
+      <div class="column">
+        {% csrf_token %}
+        <form method="POST" id="form">
+          <p>
+            <label for="first_name">Name:</label>
+            <input type="text" placeholder="Your Name" maxlength="200" required="" id="first_name">
+          </p>
+          <p>
+            <label for="reservation_date">Reservation Date:</label>
+            <input type="date" required="" id="reservation_date">
+          </p>
+          <p>
+            <label for="reservation_slot">Reservation Time:</label>
+            <select id="reservation_slot">
+              <option value="0" disabled>Select Time</option>
+            </select>
+          </p>
+          <button type="button" id="button">Reserve</button>
+        </form>
+      </div>
+      <div class="column">
+        <h2>Bookings for <span id="today"></span></h2>
+        <div id="bookings"></div>
+      </div>
+    </div>
+  </article>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    updateDateInput();
+    getBookings();
+  });
+
+  document.getElementById('reservation_date').addEventListener('change', getBookings);
+
+  function updateDateInput() {
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    document.getElementById('reservation_date').value = formattedDate;
+    document.getElementById('today').innerHTML = formattedDate;
+  }
+
+  function getBookings() {
+    let reserved_slots = [];
+    const date = document.getElementById('reservation_date').value;
+    fetch("{% url 'bookings' %}" + '?date=' + date)
+      .then(r => r.json())
+      .then(data => {
+        reserved_slots = data.map(item => item.fields.reservation_slot);
+        let bookings = data.map(item => `<p>${item.fields.first_name} - ${formatTime(item.fields.reservation_slot)}</p>`).join('');
+        let slot_options = '<option value="0" disabled>Select Time</option>';
+        for (let i = 0; i < 24; i++) {
+          const label = formatTime(i);
+          slot_options += reserved_slots.includes(i) ? `<option value=${i} disabled>${label}</option>` : `<option value=${i}>${label}</option>`;
+        }
+        document.getElementById('reservation_slot').innerHTML = slot_options;
+        document.getElementById('bookings').innerHTML = bookings || "No bookings";
+      });
+  }
+
+  function formatTime(time) {
+    return time < 10 ? `0${time}:00` : `${time}:00`;
+  }
+
+  document.getElementById('button').addEventListener('click', function (e) {
+    const formdata = {
+      first_name: document.getElementById('first_name').value,
+      reservation_date: document.getElementById('reservation_date').value,
+      reservation_slot: document.getElementById('reservation_slot').value,
+    };
+    fetch("{% url 'bookings' %}", { method: 'post', body: JSON.stringify(formdata) })
+      .then(r => r.text())
+      .then(data => {
+        getBookings();
+      });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Little Lemon - Traditional Mediterranean Flavors in Dublin</title>
+    <meta name="description" content="Discover the taste of Mediterranean cuisine with a local Dublin twist. Visit us in the heart of Dublin to experience traditional dishes made with love." />
+    <meta name="author" content="Located in Dublin, Ireland, Little Lemon is a Mediterranean restaurant, focusing on traditional recipes with local ingredients." />
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/dublin-favicon.ico' %}" />
+
+    <link rel="preload" as="style" href="{% static 'css/style.css' %}" onload="this.rel = 'stylesheet'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+
+  <body>
+    {% include 'partials/_header.html' %}
+
+    <main>{% block content %} {% endblock %}</main>
+
+    {% include 'partials/_footer.html' %}
+  </body>
+</html>
