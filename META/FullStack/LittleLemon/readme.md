@@ -8,8 +8,9 @@ This project is a web called Little Lemon and it is supposed to be functional su
 So, [STEPS]
 
 1) Using git terminal:
-   -  git clone https://github.com/fransirvent1994/Coursera/META/FullStack/LittleLemon.git
+   -  git clone https://github.com/fransirvent1994/Coursera.git
    -  With this you will clone this repository into your local machine, so I suggest to have a specific directory to place it (f.e. an empty directory called "testing")
+   -  Notice you´ll have more archives than just "META". This is the important for this case, but if you wanna take a look to the rest, be my guest!
 
 2) Once the repository is inside your local machine, go to your IDE (or whatever you use to develop and test codes) and open a new terminal (can be even the CMD or Linux Terminal).
 
